@@ -100,7 +100,7 @@ ut tincidunt ex eget placerat laoreet. phasellus vel magna odio. aenean volutpat
 * Navbars
 * Etc.
 
-#### Lab 9: React Routing
+### Lab 9: React Routing
 *Deliverable:* Add client-side routing to the project from Lab 8.
 
 ## Final Project
