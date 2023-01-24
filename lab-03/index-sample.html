@@ -1,0 +1,109 @@
+<!-- Add a Bootstrap template-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Lab 03</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Lab 03</h1>
+			</div>
+		</div>
+		<!-- Add a form with 10 text inputs-->
+		<div class="row">
+			<div class="col-md-12">
+				<form action="" method="get" id="form">
+					<div class="form-group  col-md-6">
+						<label for="name">Verb</label>
+						<input type="text" class="form-control" id="verb" name="verb" placeholder="Verb">
+					</div>
+					<div class="form-group  col-md-6">
+						<label for="name">Noun</label>
+						<input type="text" class="form-control" id="noun" name="noun" placeholder="Noun">
+					</div>
+					<div class="form-group  col-md-6">
+							<label for="name">Adjective</label>
+						<input type="text" class="form-control" id="adjective" name="adjective" placeholder="Adjective">
+					</div>
+					<div class="form-group  col-md-6">
+						<label for="name">Adverb</label>
+						<input type="text" class="form-control" id="adverb" name="adverb" placeholder="Adverb">
+					</div>
+					<!-- Add a submit button -->
+					<div class="form-group  col-md-12">
+						<button id="submit" type="submit" class="btn btn-primary">Submit</button>
+					</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p id="sentence"></p>
+				<!-- Clear the query string params -->
+				<a id="clear" href="index.html" class="btn btn-primary">Clear</a>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+
+<!-- Add a jQuery script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+
+	// Hide the sentence
+	jQuery("#sentence").hide();
+	// Hide the clear button
+	jQuery("#clear").hide();
+
+	// When we click the submit button, log the values of the form.
+	jQuery("#submit").click(function(e) {
+		console.log("Submit button clicked");
+		console.log(form)
+		console.log(jQuery("#form").serializeArray());
+	});
+
+	// Get the values from the GET request and fill them into the form
+	var verb = getParameterByName("verb");
+	var noun = getParameterByName("noun");
+	var adjective = getParameterByName("adjective");
+	var adverb = getParameterByName("adverb");
+
+	jQuery("#verb").val(verb);
+	jQuery("#noun").val(noun);
+	jQuery("#adjective").val(adjective);
+	jQuery("#adverb").val(adverb);
+
+	// Get the value of a GET parameter
+	function getParameterByName(name, url) {
+		if (!url) url = window.location.href;
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
+	// If we have verb, noun, adjective, and adverb, log a sentence.
+	if (verb && noun && adjective && adverb) {
+		// hide the form
+		jQuery("#form").hide();
+		// Write the sentence
+		// Show the sentence
+		jQuery("#sentence").show();
+		// Show the clear button
+		jQuery("#clear").show();
+		jQuery("#sentence").text("The " + adjective + " " + noun + " " + adverb + " " + verb + " the " + adjective + " " + noun + ".");
+
+	}
+
+</script>
+
+</html>
