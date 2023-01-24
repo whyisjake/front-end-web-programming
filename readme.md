@@ -1,6 +1,27 @@
 # ISDN 599 - Front End Web Programming
 
-## Iovine and Young Academy - USC
+Iovine and Young Academy - USC
+
+## Course Description
+The World Wide Web has become one of the dominant ways for individuals and companies to communicate with others. It started with web pages. Then came along eCommerce. In the United States in 2019, eCommerce was about 14% of all commerce. Experts predict that eCommerce will be 22% of all commerce by 2023. More recently, the Web has allowed the creation and rise of social media of multiple types. This course will teach you how to create interactive web pages that form the front-end basis of all Web pages that allow you to enter data.
+
+## Learning Objectives and Outcomes
+
+By the end of this course, students should be able to:
+* Create interactive HTML documents using HTML forms
+* Use Cascading Stylesheets to control the look and feel of your HTML documents
+* Program in Javascript to create interactivity in your HTML documents
+* Augment your Javascript with the jQuery library
+* Learn how to use the React Javascript library
+* Gain familiarity with Next.js
+* Use popular frameworks for deploying web applications.
+  * Example: GitHub and Vercel
+
+## Recommended Preparation
+* IDSN 530: Technology Essentials
+* Having some HTML/CSS knowledge will be very important for this class.
+* We are going to be jumping headfirst into concepts that are covered in IDSN: 530.
+
 
 # Assignments/Labs
 
