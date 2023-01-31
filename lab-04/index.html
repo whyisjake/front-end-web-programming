@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company HR Directory from a CSV File</title>
+  <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <style>
+   #cards div {
+    display:inline-block;
+   }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>HR Directory</h1>
+
+    <!-- <div id="cards">
+      <div class="card" style="width:25%;">
+        <img src="https://placekitten.com/125/125" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">John Doe</h5>
+          <p class="card-text">San Francisco, California</p>
+          <a class="btn btn-primary" href="mailto:mrfancypants@cats.com">Email Me</a>
+          <a class="btn btn-primary" href="tel:000-000-0000">Call Me</a>
+      </div>
+    </div> -->
+
+    <div id="directory">
+      <table class="table table-striped" id="directoryTable">
+        <thead>
+          <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>State</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="https://placekitten.com/125/125"></td>
+            <td>John Doe</td>
+            <td>San Francisco</td>
+            <td>California</td>
+            <td>
+              <a href="mailto:mrfancypants@cats.com">mrfancypants@cats.com</a>
+            </td>
+            <td>
+              <a href="tel:000-000-0000">000-000-0000</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+
+<script>
+  d3.csv("hr-directory.csv", function (data) {
+    console.log(data);
+  });
+</script>
+
+
+</html>
