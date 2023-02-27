@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple TODO</title>
+  <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Stuff to get done</h1>
+
+    <!-- Create a simple form to add items to a todo list -->
+    <form id="todoForm">
+      <div class="form-group">
+        <label for="todoInput">Add a new item</label>
+        <input type="text" class="form-control" id="todoInput" placeholder="Enter a new item">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <!-- Display a list of items in the todo list -->
+    <ul class="list-group" id="todoList">
+    </ul>
+
+
+  </div>
+
+</body>
+
+<script>
+
+// Get the state of todo list from local storage
+let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+
+// Render the todo list
+todoList.forEach(function(item) {
+  let newItemElement = document.createElement('li');
+  newItemElement.classList.add('list-group-item');
+  newItemElement.innerText = item;
+  document.getElementById('todoList').appendChild(newItemElement);
+});
+
+// Whe we prese submit, add the item to the list
+document.getElementById('todoForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  let newItem = document.getElementById('todoInput').value;
+  let newItemElement = document.createElement('li');
+  newItemElement.classList.add('list-group-item');
+  newItemElement.innerText = newItem;
+  document.getElementById('todoList').appendChild(newItemElement);
+
+  // After adding the item, add the item to the todoList local storage array.
+  todoList.push(newItem);
+
+  // Save the todoList array to local storage
+  localStorage.setItem('todoList', JSON.stringify(todoList));
+
+  // Clear the input field
+  document.getElementById('todoInput').value = '';
+});
+
+// If I double click on the todo item prompt me to modify the item.
+document.getElementById('todoList').addEventListener('dblclick', function(event) {
+  let item = event.target;
+  let itemText = item.innerText;
+  let newItemText = prompt('Modify the item', itemText);
+  item.innerText = newItemText;
+
+  // Update the todoList array
+  let index = todoList.indexOf(itemText);
+  todoList[index] = newItemText;
+
+  // Save the todoList array to local storage
+  localStorage.setItem('todoList', JSON.stringify(todoList));
+});
+
+
+</script>
+
+
+</html>
